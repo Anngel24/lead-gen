@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Renovation Estimate Form</title>
+  <title>Supreme Builds - Renovation Estimate</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -11,9 +11,16 @@
       font-family: 'Poppins', sans-serif;
       background-color: #f4f4f4;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    .logo {
+      margin-bottom: 1rem;
+    }
+    .logo img {
+      max-width: 200px;
+      height: auto;
     }
     .form-container {
       background: white;
@@ -124,10 +131,10 @@
   </script>
 </head>
 <body>
-  
-    <div style="text-align: center; margin-bottom: 1rem;">
-      <img src="https://assets.cdn.filesafe.space/NdhqORhIMInupjGC71JQ/media/64833a60f5aea39bb57ab4b6.png" alt="Supreme Builds Logo" style="max-width: 180px; height: auto;">
-    </div>
+  <div class="logo">
+    <img src="https://assets.cdn.filesafe.space/NdhqORhIMInupjGC71JQ/media/64833a60f5aea39bb57ab4b6.png" alt="Supreme Builds Logo">
+  </div>
+  <div class="form-container">
     <div class="lang-toggle">
       <button onclick="setLanguage('en')">English</button> | 
       <button onclick="setLanguage('es')">Español</button>

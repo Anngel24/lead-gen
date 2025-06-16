@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renovation Estimate Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    p.description {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #155ab6;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 1rem;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      color: #1a73e8;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script>
+    function setLanguage(lang) {
+      const strings = {
+        en: {
+          title: "🏠 Request a Free Renovation Estimate",
+          desc: "Fill out this quick form and we'll contact you within 24 hours with a personalized quote.",
+          name: "Full Name",
+          phone: "Phone Number",
+          email: "Email Address",
+          type: "Type of Project",
+          location: "Location",
+          description: "Brief Project Description",
+          submit: "Get My Free Quote",
+          trusted: "Trusted by 1,200+ homeowners | Licensed & Insured | ⭐️⭐️⭐️⭐️⭐️"
+        },
+        es: {
+          title: "🏠 Solicita una Cotización Gratuita de Renovación",
+          desc: "Completa este formulario rápido y te contactaremos en 24 horas con una cotización personalizada.",
+          name: "Nombre Completo",
+          phone: "Número de Teléfono",
+          email: "Correo Electrónico",
+          type: "Tipo de Proyecto",
+          location: "Ubicación",
+          description: "Descripción del Proyecto",
+          submit: "Solicitar Cotización",
+          trusted: "Con la confianza de más de 1,200 propietarios | Licenciados y Asegurados | ⭐️⭐️⭐️⭐️⭐️"
+        }
+      };
+      const t = strings[lang];
+      document.getElementById('form-title').innerText = t.title;
+      document.getElementById('form-desc').innerText = t.desc;
+      document.querySelector("label[for='name']").innerText = t.name;
+      document.querySelector("label[for='phone']").innerText = t.phone;
+      document.querySelector("label[for='email']").innerText = t.email;
+      document.querySelector("label[for='service']").innerText = t.type;
+      document.querySelector("label[for='location']").innerText = t.location;
+      document.querySelector("label[for='description']").innerText = t.description;
+      document.querySelector("button[type='submit']").innerText = t.submit;
+      document.querySelector(".footer").innerText = t.trusted;
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <div class="lang-toggle">
+      <button onclick="setLanguage('en')">English</button> | 
+      <button onclick="setLanguage('es')">Español</button>
+    </div>
+    <h2 id="form-title">🏠 Request a Free Renovation Estimate</h2>
+    <p class="description" id="form-desc">Fill out this quick form and we'll contact you within 24 hours with a personalized quote.</p>
+    <form name="lead-form" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="lead-form" />
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="service">Type of Project</label>
+      <select id="service" name="service" required>
+        <option value="">-- Select --</option>
+        <option value="bathroom">Bathroom Remodel</option>
+        <option value="kitchen">Kitchen Remodel</option>
+        <option value="flooring">Flooring</option>
+        <option value="roofing">Roofing</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="City, State" required />
+
+      <label for="description">Brief Project Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe your renovation needs..." required></textarea>
+
+      <button type="submit">Get My Free Quote</button>
+    </form>
+    <div class="footer">Trusted by 1,200+ homeowners | Licensed & Insured | ⭐️⭐️⭐️⭐️⭐️</div>
+  </div>
+</body>
+</html>
